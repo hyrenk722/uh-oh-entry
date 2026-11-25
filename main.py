@@ -11,9 +11,13 @@ ENTRY = "Guessing"
 
 # Gate from the competition rules: UTF-8 text, 1 to 99 characters,
 # exactly one word, a single line, plain text.
-assert 1 <= len(ENTRY) <= 99, f"entry length {len(ENTRY)} outside 1..99"
-assert len(ENTRY.split()) == 1, "entry must be a single word"
-assert "\n" not in ENTRY, "entry must be a single line"
+def validate(text):
+    assert 1 <= len(text) <= 99, f"entry length {len(text)} outside 1..99"
+    assert len(text.split()) == 1, "entry must be a single word"
+    assert "\n" not in text, "entry must be a single line"
+
+
+validate(ENTRY)
 
 
 def main():
